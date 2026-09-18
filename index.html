@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO & Métadonnées Générales -->
+  <title>Segnon Israël GOUDAYI | Étudiant en Médecine & Futur Médecin-Ingénieur</title>
+  <meta name="description" content="CV et profil professionnel de Segnon Israël GOUDAYI. Étudiant en 3e année de médecine générale, futur médecin-ingénieur à l'intersection de la médecine, de l'IA et de l'ingénierie logicielle." />
+  <meta name="keywords" content="Segnon Israël GOUDAYI, Médecin-Ingénieur, Médecine Générale, Neurochirurgie, Intelligence Artificielle, IA Médicale, HealthTech, Python, CS50x, Cotonou, Bénin" />
+  <meta name="author" content="Segnon Israël GOUDAYI" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Réseaux Sociaux -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://cv-izisaas.pro/" />
+  <meta property="og:title" content="Segnon Israël GOUDAYI | Étudiant en Médecine & Futur Médecin-Ingénieur" />
+  <meta property="og:description" content="Construire à l'intersection de la médecine, de l'intelligence artificielle et de l'ingénierie logicielle." />
+  <meta property="og:image" content="assets/profile.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Segnon Israël GOUDAYI | CV en Ligne" />
+  <meta name="twitter:description" content="Médecin en formation, futur médecin-ingénieur, passionné par l'IA médicale et l'innovation en santé." />
+  <meta name="twitter:image" content="assets/profile.jpg" />
+
+  <!-- Google Fonts : Inter, Outfit, IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Schema.org Données Structurées (Person) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Segnon Israël GOUDAYI",
+    "jobTitle": "Étudiant en Médecine & Futur Médecin-Ingénieur",
+    "url": "https://cv-izisaas.pro",
+    "email": "segnonisraelg@gmail.com",
+    "telephone": "+22991845627",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cotonou",
+      "addressCountry": "Bénin"
+    },
+    "sameAs": [
+      "https://github.com/isro007",
+      "https://www.linkedin.com/in/israel-goudayi"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Arrière-plan Lumineux & Effets Ambient -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+    <div class="glow-orb-3"></div>
+  </div>
+  <div class="bg-grid-overlay" aria-hidden="true"></div>
+
+  <!-- Barre de Navigation Principale -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Accueil Segnon Israël Goudayi">
+        <span class="logo-badge">SIG</span>
+        <span class="brand-name">
+          <span class="brand-name-full">Segnon Israël GOUDAYI</span>
+          <span class="brand-name-compact">S. I. GOUDAYI</span>
+        </span>
+      </a>
+
+      <!-- Liens de navigation -->
+      <nav aria-label="Menu principal">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hero" class="nav-link active">Accueil</a></li>
+          <li><a href="#about" class="nav-link">Vision & À Propos</a></li>
+          <li><a href="#skills" class="nav-link">Compétences</a></li>
+          <li><a href="#timeline" class="nav-link">Parcours</a></li>
+          <li><a href="#projects" class="nav-link">Projets & Recherche</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Actions rapides : Thème + Export CV -->
+      <div class="nav-actions">
+        <button id="themeToggleBtn" class="theme-toggle-btn" aria-label="Basculer entre mode sombre et clair" title="Mode Sombre / Clair">
+          <svg id="moonIcon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sunIcon" style="display:none;" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <button id="printCvBtn" class="btn btn-primary btn-sm" title="Imprimer ou enregistrer le CV en PDF">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span class="btn-text">CV PDF</span>
+        </button>
+
+        <button id="mobileMenuBtn" class="mobile-menu-toggle" aria-label="Ouvrir le menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION HERO -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Présentation Texte -->
+          <div class="hero-content">
+            <div class="status-badge">
+              <span class="pulse-dot"></span>
+              <span id="heroStatusBadge">🧬 Étudiant en 3e année de Médecine • Futur Médecin-Ingénieur</span>
+            </div>
+
+            <h1 class="hero-title">
+              Bonjour, je suis <br />
+              <span class="hero-name-gradient" id="heroFullName">Segnon Israël GOUDAYI</span>
+            </h1>
+
+            <h2 class="hero-subtitle" id="heroSubtitle">
+              Étudiant en Médecine & Futur Médecin-Ingénieur
+            </h2>
+
+            <p class="hero-pitch" id="heroPitch">
+              Construire à l'intersection de la médecine, de l'intelligence artificielle et de l'ingénierie logicielle pour concevoir des solutions technologiques concrètes et adaptées aux réalités africaines.
+            </p>
+
+            <!-- Boutons d'Action Rapide -->
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn btn-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span>Projets & Recherche</span>
+              </a>
+
+              <a href="#contact" class="btn btn-outline">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>Échanger avec moi</span>
+              </a>
+            </div>
+
+            <!-- Réseaux Sociaux & Accès Directs -->
+            <div class="hero-socials">
+              <a id="heroGithubLink" href="https://github.com/isro007" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub Code">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+
+              <a id="heroWhatsappLink" href="https://wa.me/22991845627?text=Bonjour%20Isra%C3%ABl,%20j'ai%20consult%C3%A9%20votre%20profil..." target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="WhatsApp Direct">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </a>
+
+              <a id="heroEmailLink" href="mailto:segnonisraelg@gmail.com" class="social-icon-btn" title="Email">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Coordonnées visibles lors de l'impression PDF -->
+            <div class="print-contact-bar" style="display:none;">
+              <span><strong>Email :</strong> segnonisraelg@gmail.com</span>
+              <span><strong>Tél / WhatsApp :</strong> +229 91 84 56 27</span>
+              <span><strong>Localisation :</strong> Cotonou, Bénin</span>
+              <span><strong>Statut :</strong> Étudiant en 3e année de Médecine (Futur Médecin-Ingénieur)</span>
+              <span><strong>GitHub :</strong> github.com/isro007</span>
+            </div>
+          </div>
+
+          <!-- Carte Visuelle & Portrait -->
+          <div class="hero-visual">
+            <div class="profile-card-wrapper">
+              <div class="profile-card-glow" aria-hidden="true"></div>
+              
+              <!-- Badges Technologiques Flottants -->
+              <div class="floating-pill floating-pill-1">
+                <span>🩺 Anatomia • MedTech & SM-2</span>
+              </div>
+              <div class="floating-pill floating-pill-2">
+                <span>🧠 Neurochirurgie × IA</span>
+              </div>
+
+              <div class="profile-card">
+                <div class="profile-image-container">
+                  <img id="profileAvatarImg" src="assets/profile.jpg" alt="Portrait Segnon Israël GOUDAYI" class="profile-image" />
+                  <div class="profile-overlay-badge">
+                    <div>
+                      <div class="overlay-info-name">Segnon Israël GOUDAYI</div>
+                      <div class="overlay-info-role">Futur Médecin-Ingénieur</div>
+                    </div>
+                    <span class="status-badge" style="margin:0; padding:4px 8px; font-size:0.75rem;">Médecine 3e A.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION VISION, PHILOSOPHIE & À PROPOS -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Positionnement & Philosophie</span>
+          <h2 class="section-title">Vision Professionnelle & Philosophie</h2>
+          <p class="section-desc">« La connaissance est le pouvoir, mais la discipline est la clé. »</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <h3 style="font-size: 1.45rem; margin-bottom: 16px;">Un profil hybride à fort impact</h3>
+            <p id="aboutBio">
+              Segnon Israël GOUDAYI construit méthodiquement un profil hybride à l'intersection de la médecine, de l'intelligence artificielle, du génie logiciel et de l'entrepreneuriat.
+            </p>
+            <p>
+              Son objectif n'est pas de considérer la technologie comme une discipline séparée, mais comme un puissant levier pour résoudre des défis médicaux concrets : diagnostic précoce, suivi continu des maladies chroniques, exploitation des connaissances scientifiques et démocratisation des soins de qualité en Afrique.
+            </p>
+            <div class="about-location-tag">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span id="aboutLocation">Cotonou, Bénin • Perspective Internationale</span>
+            </div>
+          </div>
+
+          <!-- Grille des Chiffres Clés -->
+          <div class="stats-grid" id="statsGrid">
+            <!-- Injecté dynamiquement par JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION COMPÉTENCES TECHNIQUES (SKILLS) -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Savoir-faire & Domaines</span>
+          <h2 class="section-title">Compétences & Disciplines</h2>
+          <p class="section-desc">La convergence des compétences cliniques, de la recherche en IA et du génie logiciel.</p>
+        </div>
+
+        <!-- Onglets de filtrage des catégories de compétences -->
+        <div class="skills-nav-tabs" id="skillsTabs">
+          <button class="skill-tab-btn active" data-category="all">Toutes les disciplines</button>
+          <button class="skill-tab-btn" data-category="medecine">Médecine Clinique</button>
+          <button class="skill-tab-btn" data-category="ai_health">IA Médicale & Santé</button>
+          <button class="skill-tab-btn" data-category="engineering_saas">Ingénierie & SaaS</button>
+          <button class="skill-tab-btn" data-category="transversal">Méthodologie & Culture</button>
+        </div>
+
+        <!-- Grille des compétences -->
+        <div class="skills-grid" id="skillsGrid">
+          <!-- Rendu dynamique via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION PARCOURS (EXPÉRIENCES & FORMATIONS) -->
+    <section class="section" id="timeline">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Trajectoire & Expériences</span>
+          <h2 class="section-title">Parcours Académique & Projets</h2>
+          <p class="section-desc">Formation médicale, explorations technologiques et initiatives entrepreneuriales.</p>
+        </div>
+
+        <!-- Boutons d'alternance Expérience / Formation -->
+        <div class="timeline-section-tabs">
+          <button id="viewExpBtn" class="timeline-view-btn active">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <span>Expériences & Initiatives</span>
+          </button>
+
+          <button id="viewEduBtn" class="timeline-view-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+            <span>Cursus Médical & Formations</span>
+          </button>
+        </div>
+
+        <!-- Conteneur de Timeline -->
+        <div class="timeline-container">
+          <div class="timeline-line" aria-hidden="true"></div>
+          <div id="timelineContent">
+            <!-- Injecté dynamiquement par JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION PROJETS / PORTFOLIO & RECHERCHE -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Réalisations & Recherche</span>
+          <h2 class="section-title">Projets & Travaux de Recherche</h2>
+          <p class="section-desc">Innovations médicales, systèmes d'IA, développement logiciel et initiatives entrepreneuriales.</p>
+        </div>
+
+        <!-- Filtres par types de projets -->
+        <div class="portfolio-filters" id="projectFilters">
+          <button class="filter-btn active" data-filter="all">Tous les projets (6)</button>
+          <button class="filter-btn" data-filter="health_tech">MedTech & IA Médicale</button>
+          <button class="filter-btn" data-filter="tools">Outils & Plateformes</button>
+          <button class="filter-btn" data-filter="business">Entrepreneuriat & Logistique</button>
+        </div>
+
+        <!-- Grille des Projets -->
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Rendu dynamique via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION TÉMOIGNAGES & COLLABORATIONS -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Avis & Confiance</span>
+          <h2 class="section-title">Collaborations & Échos</h2>
+          <p class="section-desc">La reconnaissance de l'exigence clinique et de la rigueur d'ingénierie.</p>
+        </div>
+
+        <div class="testimonials-grid" id="testimonialsGrid">
+          <!-- Injecté dynamiquement par JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Échange & Partenariat</span>
+          <h2 class="section-title">Entrer en Contact</h2>
+          <p class="section-desc">Échanger autour de la recherche biomédicale, de l'IA appliquée à la santé ou d'un projet technologique.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Coordonnées & Accès Directs -->
+          <div class="contact-info-card">
+            <h3 class="contact-info-title">Construisons ensemble</h3>
+            <p class="contact-info-desc">
+              Disponible pour échanger avec des médecins, ingénieurs, chercheurs et entrepreneurs passionnés par l'innovation médicale et technologique.
+            </p>
+
+            <div class="contact-items-list">
+              <!-- Email -->
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">EMAIL PROFESSIONNEL</div>
+                  <div class="contact-item-value">
+                    <a href="mailto:segnonisraelg@gmail.com" id="contactEmailVal">segnonisraelg@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Téléphone / WhatsApp -->
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">TÉLÉPHONE & WHATSAPP</div>
+                  <div class="contact-item-value">
+                    <a href="https://wa.me/22991845627" target="_blank" rel="noopener noreferrer" id="contactPhoneVal">+229 91 84 56 27</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Localisation -->
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">LOCALISATION & ORIENTATION</div>
+                  <div class="contact-item-value" id="contactLocationVal">Cotonou, Bénin • International</div>
+                </div>
+              </div>
+
+              <!-- Profil GitHub -->
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">PROJETS OPEN SOURCE</div>
+                  <div class="contact-item-value">
+                    <a href="https://github.com/isro007" target="_blank" rel="noopener noreferrer">github.com/isro007</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a id="whatsappDirectCta" href="https://wa.me/22991845627?text=Bonjour%20Isra%C3%ABl,%20j'aimerais%20discuter..." target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+              <span>Discuter sur WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Formulaire de Contact Interactif -->
+          <div class="contact-form-card">
+            <h3 style="font-size: 1.45rem; margin-bottom: 18px;">Transmettre un message</h3>
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="contactName" class="form-label">Votre nom complet</label>
+                <input type="text" id="contactName" class="form-input" placeholder="Ex: Dr. Martin / Ing. Sarah" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">Votre adresse email</label>
+                <input type="email" id="contactEmail" class="form-input" placeholder="Ex: contact@organisation.org" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contactSubject" class="form-label">Objet de la prise de contact</label>
+                <input type="text" id="contactSubject" class="form-input" placeholder="Ex: Échange recherche IA Médicale / Projet HealthTech" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contactMessage" class="form-label">Détails du message</label>
+                <textarea id="contactMessage" class="form-textarea" placeholder="Partagez vos réflexions, opportunités de recherche ou collaborations..." required></textarea>
+              </div>
+
+              <button type="submit" id="submitContactBtn" class="btn btn-primary" style="width: 100%;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                <span>Envoyer le Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIED DE PAGE (FOOTER) -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-text">
+        © <span id="currentYear">2026</span> <span class="footer-author-highlight">Segnon Israël GOUDAYI</span>. Tous droits réservés.
+        <br />
+        <span style="font-size: 0.8rem;">« La connaissance est le pouvoir, mais la discipline est la clé. » • cv-izisaas.pro</span>
+      </div>
+
+      <button id="backToTopBtn" class="back-to-top-btn" aria-label="Retour en haut de la page" title="Haut de page">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- MODALE D'APERÇU DU PROJET -->
+  <div class="modal-overlay" id="projectModal" aria-hidden="true">
+    <div class="modal-content-card">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Fermer l'aperçu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <img id="modalProjectImage" src="" alt="Aperçu du travail" class="modal-image" />
+
+      <div class="modal-body">
+        <span id="modalProjectCategory" class="project-category-badge" style="position:static; display:inline-block; margin-bottom:12px;"></span>
+        <h3 id="modalProjectTitle" style="font-size: 1.55rem; margin-bottom: 12px;"></h3>
+        <p id="modalProjectDescription" style="font-size: 1rem; line-height: 1.7; margin-bottom: 22px;"></p>
+
+        <div style="margin-bottom: 24px;">
+          <h4 style="font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 10px;">Disciplines & Technologies :</h4>
+          <div class="project-tags" id="modalProjectTags"></div>
+        </div>
+
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a id="modalProjectDemoBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            <span>Détails & Contact</span>
+          </a>
+
+          <a id="modalProjectGithubBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION TOAST -->
+  <div class="toast-notification" id="toastNotice" role="status" aria-live="polite">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastMessage">Action effectuée avec succès !</span>
+  </div>
+
+  <!-- Données & Logique JavaScript -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

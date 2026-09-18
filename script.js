@@ -78,12 +78,6 @@ function initPersonalData(personal = {}) {
   if (whatsappDirectCta && personal.phoneClean) {
     whatsappDirectCta.href = `https://wa.me/${personal.phoneClean}?text=Bonjour%20Israel,%20j'aimerais%20discuter%20d'un%20projet...`;
   }
-
-  const profileAvatarImg = document.getElementById("profileAvatarImg");
-  if (profileAvatarImg && personal.avatar) {
-    profileAvatarImg.src = personal.avatar;
-    profileAvatarImg.alt = `Portrait de ${personal.fullName}`;
-  }
 }
 
 /**
@@ -228,7 +222,28 @@ function initTimeline(experiences = [], education = []) {
 }
 
 /**
- * 5. Rendu & Filtrage des Projets (Portfolio)
+ * Générateur d'icônes SVG vectorielles pour chaque projet (100% Sans photo)
+ */
+function getProjectIconSvg(iconType) {
+  switch (iconType) {
+    case "anatomy":
+      return `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>`;
+    case "dna":
+      return `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15c6.667-6 13.333 0 20-6"></path><path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"></path><path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"></path><path d="m17 6-2.5-2.5"></path><path d="m14 8-1-1"></path><path d="m7 18 2.5 2.5"></path><path d="m3.5 14.5.5.5"></path><path d="m20 9 .5.5"></path><path d="m6.5 12.5 1 1"></path><path d="m16.5 10.5 1 1"></path><path d="m10 16 1 1"></path></svg>`;
+    case "notebook":
+      return `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="m9 14 2 2 4-4"></path></svg>`;
+    case "trophy":
+      return `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>`;
+    case "sparkles":
+      return `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>`;
+    case "truck":
+    default:
+      return `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18.5" r="2.5"></circle><circle cx="7" cy="18.5" r="2.5"></circle></svg>`;
+  }
+}
+
+/**
+ * 5. Rendu & Filtrage des Projets (Cartes 100% vectorielles épurées)
  */
 function initProjects(projects = []) {
   const projectsGrid = document.getElementById("projectsGrid");
@@ -242,8 +257,10 @@ function initProjects(projects = []) {
       .map(
         (p) => `
       <article class="project-card" data-id="${p.id}">
-        <div class="project-thumbnail-wrapper" style="cursor: pointer;" onclick="openProjectModal('${p.id}')">
-          <img src="${p.image}" alt="Aperçu ${p.title}" class="project-thumbnail" loading="lazy" />
+        <div class="project-card-banner" onclick="openProjectModal('${p.id}')">
+          <div class="project-icon-wrapper">
+            ${getProjectIconSvg(p.iconType)}
+          </div>
           <span class="project-category-badge">${p.categoryLabel}</span>
         </div>
         <div class="project-content">
@@ -254,11 +271,11 @@ function initProjects(projects = []) {
           </div>
           <div class="project-actions">
             <button type="button" class="btn btn-outline btn-sm" onclick="openProjectModal('${p.id}')">
-              <span>Détails</span>
+              <span>Fiche Projet</span>
             </button>
             <div style="display: flex; gap: 12px;">
-              <a href="${p.demoUrl}" target="_blank" rel="noopener noreferrer" class="project-link" title="Visiter le projet">
-                <span>Démo</span>
+              <a href="${p.demoUrl}" target="_blank" rel="noopener noreferrer" class="project-link" title="En savoir plus">
+                <span>Détails</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
@@ -266,7 +283,7 @@ function initProjects(projects = []) {
                 </svg>
               </a>
               <a href="${p.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-link" title="Code GitHub">
-                <span>Code</span>
+                <span>GitHub</span>
               </a>
             </div>
           </div>
@@ -318,7 +335,7 @@ function initTestimonials(testimonials = []) {
 }
 
 /**
- * 7. Modale Détails du Projet
+ * 7. Modale Détails du Projet (Sans image, orientée architecture et spécifications)
  */
 let currentProjectsList = [];
 function initProjectModal() {
@@ -345,7 +362,7 @@ window.openProjectModal = function (projectId) {
   const p = (window.cvData?.projects || []).find((item) => item.id === projectId);
   if (!modal || !p) return;
 
-  const modalImg = document.getElementById("modalProjectImage");
+  const modalIcon = document.getElementById("modalProjectIcon");
   const modalCategory = document.getElementById("modalProjectCategory");
   const modalTitle = document.getElementById("modalProjectTitle");
   const modalDesc = document.getElementById("modalProjectDescription");
@@ -353,7 +370,7 @@ window.openProjectModal = function (projectId) {
   const modalDemoBtn = document.getElementById("modalProjectDemoBtn");
   const modalGithubBtn = document.getElementById("modalProjectGithubBtn");
 
-  if (modalImg) modalImg.src = p.image;
+  if (modalIcon) modalIcon.innerHTML = getProjectIconSvg(p.iconType);
   if (modalCategory) modalCategory.textContent = p.categoryLabel;
   if (modalTitle) modalTitle.textContent = p.title;
   if (modalDesc) modalDesc.textContent = p.fullDesc || p.shortDesc;

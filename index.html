@@ -16,13 +16,10 @@
   <meta property="og:url" content="https://cv-izisaas.pro/" />
   <meta property="og:title" content="Segnon Israël GOUDAYI | Étudiant en Médecine & Futur Médecin-Ingénieur" />
   <meta property="og:description" content="Construire à l'intersection de la médecine, de l'intelligence artificielle et de l'ingénierie logicielle." />
-  <meta property="og:image" content="assets/profile.jpg" />
-
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Segnon Israël GOUDAYI | CV en Ligne" />
   <meta name="twitter:description" content="Médecin en formation, futur médecin-ingénieur, passionné par l'IA médicale et l'innovation en santé." />
-  <meta name="twitter:image" content="assets/profile.jpg" />
 
   <!-- Google Fonts : Inter, Outfit, IBM Plex Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -214,15 +211,55 @@
                 <span>🧠 Neurochirurgie × IA</span>
               </div>
 
-              <div class="profile-card">
-                <div class="profile-image-container">
-                  <img id="profileAvatarImg" src="assets/profile.jpg" alt="Portrait Segnon Israël GOUDAYI" class="profile-image" />
-                  <div class="profile-overlay-badge">
-                    <div>
-                      <div class="overlay-info-name">Segnon Israël GOUDAYI</div>
-                      <div class="overlay-info-role">Futur Médecin-Ingénieur</div>
+              <div class="profile-card identity-card">
+                <div class="identity-card-inner">
+                  <!-- Monogramme & Blason SVG -->
+                  <div class="identity-emblem">
+                    <div class="emblem-hex">
+                      <span class="emblem-sig">SIG</span>
                     </div>
-                    <span class="status-badge" style="margin:0; padding:4px 8px; font-size:0.75rem;">Médecine 3e A.</span>
+                  </div>
+
+                  <div class="identity-meta">
+                    <h3 class="identity-name">Segnon Israël GOUDAYI</h3>
+                    <div class="identity-role">Futur Médecin-Ingénieur</div>
+                    <div class="identity-location">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                      <span>Cotonou, Bénin • International</span>
+                    </div>
+                  </div>
+
+                  <!-- Matrice interdisciplinaire -->
+                  <div class="identity-matrix">
+                    <div class="matrix-item">
+                      <span class="matrix-label">Formation Clinique</span>
+                      <span class="matrix-val">3e Année Médecine (FSS)</span>
+                    </div>
+                    <div class="matrix-item">
+                      <span class="matrix-label">Génie Logiciel</span>
+                      <span class="matrix-val">Python Pro • Next.js 14</span>
+                    </div>
+                    <div class="matrix-item">
+                      <span class="matrix-label">Axe de Recherche</span>
+                      <span class="matrix-val">Neurochirurgie & IA</span>
+                    </div>
+                    <div class="matrix-item">
+                      <span class="matrix-label">Projet Phare</span>
+                      <span class="matrix-val">Anatomia (SM-2)</span>
+                    </div>
+                  </div>
+
+                  <!-- Devise personnelle gravée -->
+                  <div class="identity-creed">
+                    « La connaissance est le pouvoir, mais la discipline est la clé. »
+                  </div>
+
+                  <div class="identity-footer-badge">
+                    <span class="pulse-dot"></span>
+                    <span>Disponible pour Projets & Recherche</span>
                   </div>
                 </div>
               </div>
@@ -521,11 +558,12 @@
         </svg>
       </button>
 
-      <img id="modalProjectImage" src="" alt="Aperçu du travail" class="modal-image" />
-
       <div class="modal-body">
-        <span id="modalProjectCategory" class="project-category-badge" style="position:static; display:inline-block; margin-bottom:12px;"></span>
-        <h3 id="modalProjectTitle" style="font-size: 1.55rem; margin-bottom: 12px;"></h3>
+        <div class="modal-header-badge-row">
+          <div id="modalProjectIcon" class="modal-project-icon"></div>
+          <span id="modalProjectCategory" class="project-category-badge" style="position:static; display:inline-block;"></span>
+        </div>
+        <h3 id="modalProjectTitle" style="font-size: 1.55rem; margin-bottom: 12px; margin-top: 14px;"></h3>
         <p id="modalProjectDescription" style="font-size: 1rem; line-height: 1.7; margin-bottom: 22px;"></p>
 
         <div style="margin-bottom: 24px;">

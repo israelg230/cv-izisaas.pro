@@ -1,18 +1,37 @@
-from fastapi import FastAPI, HTTPException
+import os
+# pyrefly: ignore [missing-import]
+from fastapi import FastAPI, Request
+# pyrefly: ignore [missing-import]
+from fastapi.responses import FileResponse
+# pyrefly: ignore [missing-import]
 from fastapi.middleware.cors import CORSMiddleware
+# pyrefly: ignore [missing-import]
+from fastapi.staticfiles import StaticFiles
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 
-from backend.models import (
-    ContactMessage,
-    ContactResponse,
-    PersonalInfo,
-    SkillCategory,
-    ProjectItem,
-    ExperienceItem,
-    EducationItem,
-    TestimonialItem
-)
+try:
+    from backend.models import (
+        ContactMessage,
+        ContactResponse,
+        PersonalInfo,
+        SkillCategory,
+        ProjectItem,
+        ExperienceItem,
+        EducationItem,
+        TestimonialItem
+    )
+except ImportError:
+    from models import (
+        ContactMessage,
+        ContactResponse,
+        PersonalInfo,
+        SkillCategory,
+        ProjectItem,
+        ExperienceItem,
+        EducationItem,
+        TestimonialItem
+    )
 
 app = FastAPI(
     title="Segnon Israël GOUDAYI — CV API",
@@ -206,8 +225,20 @@ CV_DATA: Dict[str, Any] = {
     ]
 }
 
+# Répertoire racine contenant le frontend statique (index.html, styles.css, script.js, data.js)
+static_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
 @app.get("/")
-def root():
+def root(request: Request):
+    """
+    Sert index.html aux navigateurs web (Accept: text/html),
+    ou retourne le JSON de statut API pour les clients REST/tests automatisés.
+    """
+    accept = request.headers.get("accept", "")
+    if "text/html" in accept:
+        index_file = os.path.join(static_dir, "index.html")
+        if os.path.exists(index_file):
+            return FileResponse(index_file)
     return {
         "status": "online",
         "service": "Segnon Israël GOUDAYI CV API",
@@ -217,7 +248,12 @@ def root():
 
 @app.get("/api/health")
 def health_check():
-    return {"status": "ok", "mode": "FastAPI + Pydantic v2"}
+    return {
+        "status": "ok",
+        "mode": "FastAPI + Pydantic v2",
+        "frontend_connected": True,
+        "timestamp": datetime.utcnow().isoformat()
+    }
 
 @app.get("/api/cv")
 def get_full_cv():
@@ -239,6 +275,10 @@ def submit_contact_form(msg: ContactMessage):
     # Validation Pydantic v2 automatique
     return ContactResponse(
         success=True,
-        message=f"Merci {msg.name}, votre message a été enregistré avec succès.",
+        message=f"Merci {msg.name}, votre message a été enregistré avec succès par l'API.",
         timestamp=datetime.utcnow().isoformat()
     )
+
+# Montage des fichiers statiques pour servir styles.css, script.js, data.js, etc.
+if os.path.exists(static_dir):
+    app.mount("/", StaticFiles(directory=static_dir), name="static")

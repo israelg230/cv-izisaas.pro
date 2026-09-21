@@ -1,4 +1,12 @@
+import os
+import sys
+
+# Assure que la racine du projet est dans le sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
+# pyrefly: ignore [missing-import]
 from backend.main import app
+# pyrefly: ignore [missing-import]
 from fastapi.testclient import TestClient
 
 client = TestClient(app)

@@ -1,0 +1,244 @@
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from datetime import datetime
+from typing import List, Dict, Any, Optional
+
+from backend.models import (
+    ContactMessage,
+    ContactResponse,
+    PersonalInfo,
+    SkillCategory,
+    ProjectItem,
+    ExperienceItem,
+    EducationItem,
+    TestimonialItem
+)
+
+app = FastAPI(
+    title="Segnon Israël GOUDAYI — CV API",
+    description="Backend API FastAPI + Pydantic v2 pour le CV et Projets MedTech de Segnon Israël GOUDAYI",
+    version="2.0.0"
+)
+
+# CORS Middleware autorisant les requetes frontend (Next.js)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+CV_DATA: Dict[str, Any] = {
+    "personal": {
+        "fullName": "Segnon Israël GOUDAYI",
+        "firstName": "Segnon Israël",
+        "lastName": "GOUDAYI",
+        "title": "Étudiant en 3e Année de Médecine & Futur Médecin-Ingénieur",
+        "subtitle": "« Médecine × IA × Ingénierie × Innovation » — Comprendre les problématiques cliniques, concevoir des architectures technologiques et contribuer à des systèmes de santé plus performants.",
+        "statusBadge": "🧬 3e Année de Médecine (Bénin) • Cap Neurochirurgie & IA",
+        "location": "Cotonou, Bénin • Perspective Internationale",
+        "email": "segnonisraelg@gmail.com",
+        "phone": "+229 91 84 56 27",
+        "phoneClean": "22991845627",
+        "github": "https://github.com/isro007",
+        "githubUsername": "isro007",
+        "linkedin": "https://www.linkedin.com/in/israel-goudayi",
+        "website": "https://cv-izisaas.pro",
+        "philosophy": "« La connaissance est le pouvoir, mais la discipline est la clé. »",
+        "bio": "Étudiant en 3e année de médecine générale au Bénin avec une projection vers la neurochirurgie, je bâtis un profil d'exception à l'intersection de la clinique, de l'intelligence artificielle et de l'ingénierie logicielle. Développeur Python de niveau professionnel et concepteur de solutions numériques (Anatomia, Carnet Médecin-Ingénieur), je refuse de séparer la technique de la médecine : la technologie est l'instrument de précision permettant de résoudre les défis réels de santé en Afrique et dans le monde.",
+        "stats": [
+            {"number": "3e Année", "label": "Médecine Générale (Bénin)"},
+            {"number": "Neurochirurgie", "label": "Spécialisation visée"},
+            {"number": "Python Pro", "label": "Niveau de programmation"},
+            {"number": "Anatomia", "label": "Projet adaptatif phare"}
+        ]
+    },
+    "skills": {
+        "categories": [
+            {
+                "id": "medecine",
+                "name": "Sciences Médicales & Clinique",
+                "description": "Socle clinique avancé, raisonnement diagnostique et physiopathologie.",
+                "items": [
+                    {"name": "Hématologie (hémogramme, pancytopénie, diagnostic LMC)", "level": 90, "tag": "Approfondi"},
+                    {"name": "Hémostase (cascade de coagulation, fibrinolyse, exploration)", "level": 88, "tag": "Approfondi"},
+                    {"name": "Neurophysiologie (voies lemniscale vs spinothalamique, sensoriel)", "level": 90, "tag": "Axe Neurochirurgie"},
+                    {"name": "Anatomie (voies visuelles, patterns lésionnels, surrénales)", "level": 92, "tag": "Expertise Anatomia"},
+                    {"name": "Biologie moléculaire (transcription, traduction, réplication)", "level": 88, "tag": "Niveau agrégation"},
+                    {"name": "Chirurgie & Urgences (occlusion intestinale aiguë, sémiologie)", "level": 86, "tag": "Pratique clinique"}
+                ]
+            },
+            {
+                "id": "engineering_saas",
+                "name": "Programmation & Génie Logiciel",
+                "description": "Développement logiciel complet, architectures robustes et prototypes MVP.",
+                "items": [
+                    {"name": "Python (Niveau professionnel, Scripts, FastAPI, Pydantic v2)", "level": 94, "tag": "Langage de référence"},
+                    {"name": "Next.js 14, TypeScript & React", "level": 90, "tag": "Stack moderne"},
+                    {"name": "PostgreSQL 16, Schémas relationnels & SQL", "level": 88, "tag": "Bases de données"},
+                    {"name": "Celery, Redis & Tâches asynchrones", "level": 82, "tag": "Backend distribué"},
+                    {"name": "Algorithmique, Structures de données & CS50x", "level": 90, "tag": "Fondations théoriques"},
+                    {"name": "Git, GitHub Workflows & Environnements Linux", "level": 92, "tag": "DevOps & Collaboration"},
+                    {"name": "Vibe Coding & Prototypage rapide de SaaS", "level": 95, "tag": "Productivité augmentée"}
+                ]
+            },
+            {
+                "id": "ai_med",
+                "name": "Intelligence Artificielle Médicale",
+                "description": "Applications concrètes du Machine Learning à l'analyse clinique et au suivi patient.",
+                "items": [
+                    {"name": "IA Médicale & Systèmes d'aide au diagnostic", "level": 85, "tag": "Recherche active"},
+                    {"name": "Suivi intelligent de la Drépanocytose (prévention crises)", "level": 88, "tag": "Projet en cours"},
+                    {"name": "Analyse automatisée de littérature biomédicale", "level": 86, "tag": "Veille scientifique"},
+                    {"name": "Modélisation de données de santé & Imagerie médicale", "level": 80, "tag": "Exploration"}
+                ]
+            },
+            {
+                "id": "research_langs",
+                "name": "Recherche, Culture & Langues",
+                "description": "Méthode scientifique rigoureuse, culture générale compétitive et multilinguisme.",
+                "items": [
+                    {"name": "Méthode scientifique & Fiches de synthèse biomédicales", "level": 92, "tag": "Structuré"},
+                    {"name": "Culture Générale & Club Génie en Herbe FSS", "level": 95, "tag": "Compétition & Quiz"},
+                    {"name": "Anglais scientifique & technique", "level": 82, "tag": "Priorité absolue"},
+                    {"name": "Français (langue maternelle, rédaction académique)", "level": 98, "tag": "Natif"},
+                    {"name": "Japonais, Espagnol, Allemand", "level": 35, "tag": "Vision Polyglotte"}
+                ]
+            }
+        ]
+    },
+    "experiences": [
+        {
+            "role": "Concepteur & Développeur Principal",
+            "company": "Projet Anatomia — Plateforme Adaptative MedTech",
+            "period": "2023 - Présent",
+            "details": "Conception intégrale de l'architecture logicielle : diagrammes UML, schéma PostgreSQL 16, backend FastAPI + Pydantic v2 et interface Next.js 14 avec TypeScript.",
+            "badges": ["Next.js 14", "TypeScript", "FastAPI", "PostgreSQL", "SM-2"]
+        },
+        {
+            "role": "Étudiant Hospitalier & Pratique Clinique",
+            "company": "Faculté des Sciences de la Santé (FSS) — Bénin",
+            "period": "2022 - Présent",
+            "details": "Apprentissage clinique intensif : sémiologie médicale et chirurgicale, urgences, stages en hématologie, neurophysiologie. Cap fixé sur la spécialisation en neurochirurgie.",
+            "badges": ["Sémiologie", "Hématologie", "Neurophysiologie", "Urgences"]
+        }
+    ],
+    "projects": [
+        {
+            "id": "anatomia",
+            "title": "Anatomia — Plateforme Adaptative d'Anatomie",
+            "category": "health_tech",
+            "categoryLabel": "Projet Phare • MedTech",
+            "iconType": "anatomy",
+            "featured": True,
+            "shortDesc": "Plateforme francophone d'apprentissage adaptatif de l'anatomie médicale basée sur la répétition espacée (SM-2).",
+            "fullDesc": "Anatomia est conçu pour révolutionner l'apprentissage de l'anatomie pour les étudiants en médecine. Reposant sur une stack Next.js 14, FastAPI, PostgreSQL 16 et Celery/Redis, le système implémente l'algorithme SM-2.",
+            "tags": ["Next.js 14", "FastAPI", "TypeScript", "PostgreSQL", "Celery", "Algorithme SM-2"],
+            "demoUrl": "https://cv-izisaas.pro/#contact",
+            "githubUrl": "https://github.com/isro007"
+        },
+        {
+            "id": "drepa-ia",
+            "title": "Système IA — Suivi de la Drépanocytose",
+            "category": "health_tech",
+            "categoryLabel": "IA Médicale",
+            "iconType": "dna",
+            "featured": True,
+            "shortDesc": "Dispositif intelligent de suivi personnalisé et automatisé pour patients atteints de drépanocytose en Afrique.",
+            "fullDesc": "Projet d'innovation médicale visant à anticiper les crises vaso-occlusives et complications de la drépanocytose.",
+            "tags": ["IA Médicale", "Drépanocytose", "Python", "Data Santé", "Santé Africaine"],
+            "demoUrl": "https://cv-izisaas.pro/#contact",
+            "githubUrl": "https://github.com/isro007"
+        },
+        {
+            "id": "carnet-medecin-ingenieur",
+            "title": "Carnet Médecin-Ingénieur",
+            "category": "tools",
+            "categoryLabel": "Outil de Suivi Personnel",
+            "iconType": "notebook",
+            "featured": True,
+            "shortDesc": "Application de monitoring et validation de compétences interdisciplinaires (Médecine, Dev, IA, Robotique).",
+            "fullDesc": "Outil conçu pour piloter de façon méthodique la double trajectoire de médecin-ingénieur.",
+            "tags": ["Python", "Productivité", "Checklist Médicale", "Médecin-Ingénieur"],
+            "demoUrl": "https://cv-izisaas.pro/#contact",
+            "githubUrl": "https://github.com/isro007"
+        },
+        {
+            "id": "genie-en-herbe-app",
+            "title": "Plateforme Interactive Génie en Herbe",
+            "category": "tools",
+            "categoryLabel": "Culture & Émulation",
+            "iconType": "trophy",
+            "featured": False,
+            "shortDesc": "Application de compétition de quiz (42 questions, chronométrage, scoring par catégorie) pour le club FSS.",
+            "fullDesc": "Outil d'entraînement rapide conçu pour le club Génie en Herbe de la faculté de médecine.",
+            "tags": ["TypeScript", "Quiz Engine", "Culture Générale", "FSS Bénin"],
+            "demoUrl": "https://cv-izisaas.pro/#contact",
+            "githubUrl": "https://github.com/isro007"
+        },
+        {
+            "id": "senan-essence",
+            "title": "Sènan Essence — Parfumerie Minimaliste",
+            "category": "business",
+            "categoryLabel": "Entrepreneuriat",
+            "iconType": "sparkles",
+            "featured": False,
+            "shortDesc": "Marque de parfumerie de luxe minimaliste à identité africaine (monogramme SE, packaging épuré).",
+            "fullDesc": "Projet entrepreneurial complet : création de l'univers de marque, distribution via WhatsApp Business et Mobile Money.",
+            "tags": ["Branding", "Luxe Minimaliste", "E-Commerce", "Mobile Money"],
+            "demoUrl": "https://cv-izisaas.pro/#contact",
+            "githubUrl": "https://github.com/isro007"
+        },
+        {
+            "id": "livrexpress",
+            "title": "LivrExpress — Logistique Dakar & Cotonou",
+            "category": "business",
+            "categoryLabel": "Logistique Urbaine",
+            "iconType": "truck",
+            "featured": False,
+            "shortDesc": "Conception de l'expérience utilisateur et de la landing page pour un service de livraison urbaine en 2h.",
+            "fullDesc": "Interface de commande simplifiée pour expédier et recevoir des colis à Cotonou et Dakar.",
+            "tags": ["UX/UI Design", "Landing Page", "Logistique", "Cotonou & Dakar"],
+            "demoUrl": "https://cv-izisaas.pro/#demo-livrexpress",
+            "githubUrl": "https://github.com/isro007"
+        }
+    ]
+}
+
+@app.get("/")
+def root():
+    return {
+        "status": "online",
+        "service": "Segnon Israël GOUDAYI CV API",
+        "version": "2.0.0",
+        "timestamp": datetime.utcnow().isoformat()
+    }
+
+@app.get("/api/health")
+def health_check():
+    return {"status": "ok", "mode": "FastAPI + Pydantic v2"}
+
+@app.get("/api/cv")
+def get_full_cv():
+    return CV_DATA
+
+@app.get("/api/profile", response_model=PersonalInfo)
+def get_personal_info():
+    return CV_DATA["personal"]
+
+@app.get("/api/projects", response_model=List[ProjectItem])
+def get_projects(category: Optional[str] = None):
+    projects = CV_DATA.get("projects", [])
+    if category and category != "all":
+        return [p for p in projects if p.get("category") == category]
+    return projects
+
+@app.post("/api/contact", response_model=ContactResponse)
+def submit_contact_form(msg: ContactMessage):
+    # Validation Pydantic v2 automatique
+    return ContactResponse(
+        success=True,
+        message=f"Merci {msg.name}, votre message a été enregistré avec succès.",
+        timestamp=datetime.utcnow().isoformat()
+    )

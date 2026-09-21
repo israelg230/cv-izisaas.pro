@@ -1,11 +1,6 @@
-/**
- * Fichier de configuration des données du CV en ligne
- * Segnon Israël GOUDAYI — cv-izisaas.pro
- * Profil : Étudiant en 3e année de Médecine (Bénin) & Futur Médecin-Ingénieur
- * Positionnement : « Médecine × IA × Ingénierie × Innovation »
- */
+import { CvData } from '../types/cv';
 
-const cvData = {
+export const cvData: CvData = {
   personal: {
     fullName: "Segnon Israël GOUDAYI",
     firstName: "Segnon Israël",
@@ -61,27 +56,26 @@ const cvData = {
         ]
       },
       {
-        id: "ai_health",
-        name: "IA Médicale & Santé Digitale",
-        description: "Intelligence artificielle, aide au diagnostic et exploitation des données de santé.",
+        id: "ai_med",
+        name: "Intelligence Artificielle Médicale",
+        description: "Applications concrètes du Machine Learning à l'analyse clinique et au suivi patient.",
         items: [
-          { name: "Aide au diagnostic médical & Machine Learning", level: 86, tag: "Recherche appliquée" },
-          { name: "Système de suivi intelligent de la Drépanocytose", level: 92, tag: "Projet HealthTech" },
-          { name: "Analyse de littérature biomédicale & Base de connaissances", level: 90, tag: "Synthèse scientifique" },
-          { name: "Imagerie médicale & Vision par ordinateur", level: 80, tag: "En exploration" },
-          { name: "Médecine personnalisée adaptée aux réalités africaines", level: 88, tag: "Vision continentale" }
+          { name: "IA Médicale & Systèmes d'aide au diagnostic", level: 85, tag: "Recherche active" },
+          { name: "Suivi intelligent de la Drépanocytose (prévention crises)", level: 88, tag: "Projet en cours" },
+          { name: "Analyse automatisée de littérature biomédicale", level: 86, tag: "Veille scientifique" },
+          { name: "Modélisation de données de santé & Imagerie médicale", level: 80, tag: "Exploration" }
         ]
       },
       {
-        id: "transversal",
-        name: "Méthodes, Génie en Herbe & Culture",
-        description: "Rappel actif, répétition espacée (SM-2), agilité mémorielle et entrepreneuriat.",
+        id: "research_langs",
+        name: "Recherche, Culture & Langues",
+        description: "Méthode scientifique rigoureuse, culture générale compétitive et multilinguisme.",
         items: [
-          { name: "Algorithmes de répétition espacée (Logique SM-2)", level: 92, tag: "Intégré dans Anatomia" },
-          { name: "Génie en Herbe (Quiz interactifs, 42Q, mémoire rapide)", level: 96, tag: "Club Faculté FSS" },
-          { name: "Recherche documentaire & Synthèse sur l'Afrique / Bénin", level: 94, tag: "Supports d'étude" },
-          { name: "Résolution systématique de problèmes (Définir → Construire → Tester)", level: 95, tag: "Méthodologie" },
-          { name: "Anglais scientifique et médical", level: 86, tag: "Opérationnel" }
+          { name: "Méthode scientifique & Fiches de synthèse biomédicales", level: 92, tag: "Structuré" },
+          { name: "Culture Générale & Club Génie en Herbe FSS", level: 95, tag: "Compétition & Quiz" },
+          { name: "Anglais scientifique & technique", level: 82, tag: "Priorité absolue" },
+          { name: "Français (langue maternelle, rédaction académique)", level: 98, tag: "Natif" },
+          { name: "Japonais, Espagnol, Allemand", level: 35, tag: "Vision Polyglotte" }
         ]
       }
     ]
@@ -89,83 +83,53 @@ const cvData = {
 
   experiences: [
     {
-      role: "Étudiant Hospitalo-Universitaire en 3e Année de Médecine",
-      company: "Faculté des Sciences de la Santé (Bénin)",
-      period: "2022 — Présent",
-      location: "Bénin",
-      badge: "Formation Principale",
-      description: "Apprentissage clinique approfondi et études de pathologies à haut registre d'exigence.",
-      highlights: [
-        "Étude poussée de l'hématologie (hémogrammes, pancytopénie, LMC) et de l'hémostase (cascade de coagulation, fibrinolyse).",
-        "Maîtrise de la neurophysiologie (voies lemniscales vs spinothalamiques) orientée vers la neurochirurgie.",
-        "Observation sémiologique et prise en charge des urgences chirurgicales (occlusion intestinale aiguë).",
-        "Travaux avancés en biologie moléculaire de niveau agrégation (transcription, réplication de l'ADN)."
-      ],
-      techStack: ["Hématologie", "Neurophysiologie", "Anatomie", "Sémiologie", "Biologie Moléculaire"]
+      role: "Concepteur & Développeur Principal",
+      company: "Projet Anatomia — Plateforme Adaptative MedTech",
+      period: "2023 - Présent",
+      details: "Conception intégrale de l'architecture logicielle : diagrammes UML (classes Utilisateur à plat avec rôle, logique SM-2 dans Progression), schéma PostgreSQL 16, backend FastAPI + Pydantic v2 et interface Next.js 14 avec TypeScript. Élaboration de la feuille de route de 9 domaines de compétences avec mentorat frontend.",
+      badges: ["Next.js 14", "TypeScript", "FastAPI", "PostgreSQL", "SM-2"]
     },
     {
-      role: "Concepteur & Architecte Logiciel — Projet Anatomia",
-      company: "Plateforme d'Apprentissage Médicale Adaptative",
-      period: "2023 — Présent",
-      location: "Bénin & Espace Francophone",
-      badge: "Projet Phare",
-      description: "Conception complète d'une plateforme d'apprentissage adaptatif pour étudiants en anatomie médicale.",
-      highlights: [
-        "Cycle de conception complet : analyse des besoins, diagrammes UML (classes, rôles, logique de progression), schémas PostgreSQL.",
-        "Intégration de l'algorithme de répétition espacée SM-2 pour maximiser la rétention mémorielle sur 9 domaines d'anatomie.",
-        "Évolution du concept pionnier AnatoMED-Afrique (pensé offline-first, mobile money et programmes adaptés au contexte africain).",
-        "Architecture backend robuste en FastAPI + Pydantic v2 et interface Next.js 14 TypeScript, avec mentorat d'un ami expert frontend."
-      ],
-      techStack: ["Next.js 14", "FastAPI", "TypeScript", "PostgreSQL 16", "Celery / Redis", "Algorithme SM-2"]
+      role: "Étudiant Hospitalier & Pratique Clinique",
+      company: "Faculté des Sciences de la Santé (FSS) — Bénin",
+      period: "2022 - Présent",
+      details: "Apprentissage clinique intensif : sémiologie médicale et chirurgicale, urgences, stages en hématologie, neurophysiologie, raisonnement diagnostique et prise en charge des urgences occlusives. Cap fixé sur la spécialisation en neurochirurgie.",
+      badges: ["Sémiologie", "Hématologie", "Neurophysiologie", "Urgences"]
     },
     {
-      role: "Responsable Conception Digitale & Concepteur de Quiz",
-      company: "Club Génie en Herbe — Faculté de Médecine (FSS)",
-      period: "2022 — Présent",
-      location: "Faculté de Médecine, Bénin",
-      badge: "Culture & Émulation",
-      description: "Création de l'identité de marque, des supports de formation et d'applications de quiz compétitifs.",
-      highlights: [
-        "Définition de l'identité complète du club (devise 'Scientia et Fraternitas Vincunt', univers visuel et charte).",
-        "Conception d'applications de quiz interactives (formats 42 questions, gestion du minuteur, scoring et répartition thématique).",
-        "Rédaction de supports d'études complets : littérature africaine (quiz 100 questions), sélection Bokklubben, guide sur l'histoire et le patrimoine du Bénin (2 volumes)."
-      ],
-      techStack: ["Applications Quiz", "UI Interactive", "Rédaction Scientifique", "Culture Générale", "Branding"]
+      role: "Créateur de Contenus Académiques & Quiz Engine",
+      company: "Club Génie en Herbe — FSS Cotonou",
+      period: "2023 - Présent",
+      details: "Définition de l'identité de marque du club (Scientia et Fraternitas Vincunt). Rédaction de guides de référence : littérature africaine (100 questions), 100 plus grands livres Bokklubben, guide du patrimoine et histoire du Bénin en 2 volumes. Conception d'une application web de quiz compétitif à 42 questions avec minuterie et calcul de score dynamique.",
+      badges: ["Génie Logiciel", "Quiz Engine", "Culture Générale", "Branding"]
     },
     {
-      role: "Fondateur & Stratège de Marque",
-      company: "Sènan Essence & Initiatives Numériques (LivrExpress)",
-      period: "2023 — Présent",
-      location: "Cotonou & Dakar",
-      badge: "Entrepreneuriat",
-      description: "Création d'une marque de parfumerie minimaliste à identité africaine et projets numériques e-logistique.",
-      highlights: [
-        "Sènan Essence : création de la marque (flacon rectangulaire, monogramme SE), palette de luxe minimaliste, canaux WhatsApp Business et Mobile Money.",
-        "LivrExpress : élaboration de l'expérience utilisateur et de la landing page pour la livraison express à Dakar et Cotonou.",
-        "Développement d'une compréhension pragmatique du commerce, de l'acquisition client et de l'adaptation aux marchés CEDEAO."
-      ],
-      techStack: ["Branding", "E-Commerce", "Stratégie Digitale", "Expérience Client", "Mobile Money"]
+      role: "Fondateur & Stratège Produit",
+      company: "Projets SaaS & E-Commerce (Sènan Essence, LivrExpress)",
+      period: "2023 - Présent",
+      details: "Création et lancement de prototypes à fort impact : Sènan Essence (parfumerie de luxe minimaliste, flacon sobre monogrammé SE, intégration WhatsApp Business et Mobile Money) et LivrExpress (landing page optimisée pour la livraison urbaine à Dakar et Cotonou).",
+      badges: ["SaaS", "E-Commerce", "UX Design", "Mobile Money"]
     }
   ],
 
   education: [
     {
-      degree: "Diplôme d'État de Docteur en Médecine (3e année en cours)",
-      institution: "Faculté des Sciences de la Santé (Bénin)",
-      period: "2022 — Présent",
-      details: "Formation clinique et hospitalière rigoureuse. Projection à long terme vers l'internat et la spécialisation en Neurochirurgie, couplée à la recherche en technologies médicales et robotique."
+      degree: "3e Année de Médecine Générale",
+      institution: "Faculté des Sciences de la Santé (FSS) — Bénin",
+      period: "2022 - En cours",
+      details: "Formation médicale complète avec approfondissement personnel en neurochirurgie, neurophysiologie, cascade de coagulation et diagnostic de la Leucémie Myéloïde Chronique."
     },
     {
-      degree: "Formation Avancée en Ingénierie Logicielle & Python Professionnel",
-      institution: "Harvard CS50x & Cursus Autonome en Génie Logiciel",
-      period: "2022 — Présent",
-      details: "Maîtrise approfondie des algorithmes, structures de données, Python avancé, architectures Next.js/FastAPI, bases relationnelles PostgreSQL et modélisation logicielle."
+      degree: "Fondations en Informatique & Algorithmique (CS50x)",
+      institution: "Harvard Online / Étude Autonome",
+      period: "2023",
+      details: "Algorithmique avancée, structures de données fondamentales, gestion de la mémoire, complexité temporelle et résolution méthodique de problèmes logiciels."
     },
     {
-      degree: "Baccalauréat Scientifique",
-      institution: "Enseignement Général Secondaire",
-      period: "Mention d'Excellence",
-      details: "Excellence académique en mathématiques, sciences physiques et biologie / SVT."
+      degree: "Baccalauréat Scientifique (Série C / D)",
+      institution: "Enseignement Secondaire Général — Bénin",
+      period: "Diplômé avec Mention",
+      details: "Bases solides en mathématiques, sciences physiques, chimie et biologie cellulaire."
     }
   ],
 
@@ -218,7 +182,7 @@ const cvData = {
       featured: false,
       shortDesc: "Application de compétition de quiz (42 questions, chronométrage, scoring par catégorie) pour le club FSS.",
       fullDesc: "Outil d'entraînement rapide conçu pour le club Génie en Herbe de la faculté de médecine. Gère le flux complet d'un match (minuteur de buzz, attribution dynamique de points, questions croisées en littérature africaine, sciences, histoire et culture du Bénin).",
-      tags: ["JavaScript", "Quiz Engine", "Culture Générale", "FSS Bénin"],
+      tags: ["TypeScript", "Quiz Engine", "Culture Générale", "FSS Bénin"],
       demoUrl: "https://cv-izisaas.pro/#contact",
       githubUrl: "https://github.com/isro007"
     },
@@ -265,10 +229,3 @@ const cvData = {
     }
   ]
 };
-
-if (typeof window !== "undefined") {
-  window.cvData = cvData;
-}
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = cvData;
-}

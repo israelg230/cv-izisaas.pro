@@ -1,0 +1,26 @@
+{
+  "name": "cv-izisaas.pro",
+  "version": "2.0.0",
+  "description": "CV en Ligne Haute Fidélité — Segnon Israël GOUDAYI (Médecine × IA × Ingénierie × Innovation)",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "backend": "python -m uvicorn backend.main:app --reload --port 8000"
+  },
+  "dependencies": {
+    "next": "^14.2.24",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "lucide-react": "^0.475.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.19",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "typescript": "^5.7.3"
+  }
+}
